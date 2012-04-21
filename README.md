@@ -23,3 +23,6 @@ Usage:
    noise.
   Currently the simulation map doesn't take armlength into account when "drawing" 
     the craft, but the values do affect the flight dynamics.
+    
+  Also, the heading indicator is a bit wacky thanks to tangent being a jerk in general.
+  I need to spend a little more time with my unit circle, but it was low priority for v1
