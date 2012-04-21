@@ -78,10 +78,10 @@ void Altimeter::paintEvent(QPaintEvent *)
 
     painter.setPen(c_white);
 
-    for (int i = 0; i < 12; ++i) {
+    for (int i = 0; i < 18; ++i) {
         painter.drawLine(84, 0, 96, 0);
-        painter.drawText(QPoint(70,0), QString::number(i*2,10));
-        painter.rotate(30.0);
+        painter.drawText(QPoint(70,0), QString::number(i,10));
+        painter.rotate(20.0);
     }
 
     painter.setPen(Qt::NoPen);
@@ -91,7 +91,7 @@ void Altimeter::paintEvent(QPaintEvent *)
 
     painter.save();
     //painter.rotate( (time.msec() * 360 / 999 ));
-    painter.rotate(altitude*360/24);
+    painter.rotate(altitude*360/12);
     painter.drawConvexPolygon(pointer, 7);
     painter.restore();
 

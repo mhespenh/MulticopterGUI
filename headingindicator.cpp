@@ -102,11 +102,12 @@ void HeadingIndicator::paintEvent(QPaintEvent *)
 
 
     painter.setPen(c_yellow);
-
-    for (int i = 0; i < 12; ++i) {
+    QStringList cardinals;
+    cardinals << "90" << "135" << "180" << "225" << "270" << "315" << "0" << "45";
+    for (int i = 0; i < 8; ++i) {
         painter.drawLine(84, 0, 96, 0);
-        painter.drawText(QPoint(70,0), QString::number(i*30,10));
-        painter.rotate(30.0);
+        painter.drawText(QPoint(70,0), cardinals[i]);
+        painter.rotate(45.0);
     }
 
     painter.setPen(Qt::NoPen);

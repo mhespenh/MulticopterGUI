@@ -44,7 +44,6 @@ private:
     int obstacle_cor_x;
     int obstacle_cor_y;
     QPoint obstacle;
-
 };
 
 #endif

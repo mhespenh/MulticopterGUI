@@ -36,7 +36,7 @@ struct dataStruct{
 */
     int t0, t1, t2, t3;
     int cur_x, cur_y, target_x, target_y;
-    double pitch, roll, altitude, v_x, v_y, v_z;
+    double pitch, roll, altitude, v_x, v_y, v_z, armLength;
 };
 
 
@@ -73,6 +73,7 @@ private:
     int destination_old_y;
     int formatted_x;
     int formatted_y;
+    double armLength;
 };
 
 #endif // AVIONICSTELEMETRY_H

@@ -27,10 +27,13 @@ AvionicsTelemetry::AvionicsTelemetry(QWidget *parent) :
     //connect(timer, SIGNAL(timeout()), this, SLOT(update()));
     connect(timer,SIGNAL(timeout()),this,SLOT(readWriteMemory()));
 
-    timer->start(10);
+    timer->start(10); //10ms timer
 
     //Hide Memory Warning
     ui->label_MemWarn->hide();
+    this->formatted_x = 0;
+    this->formatted_y = 0;
+    this->armLength = 1;
 
 }
 
@@ -50,8 +53,8 @@ void AvionicsTelemetry::readWriteMemory()
     else
     {
         //Format X and Y before sending to main
-        formatted_x = destination_x - 25;
-        formatted_y = destination_y - 25;
+        formatted_x = destination_x - armLength;
+        formatted_y = destination_y - armLength;
         //Check to see if the click is in range
         if(formatted_x < 0 || formatted_y < 0 || formatted_x > 600 || formatted_y > 600)
         {
@@ -90,13 +93,14 @@ void AvionicsTelemetry::readWriteMemory()
     theData.v_x = ptr->v_x;
     theData.v_y = ptr->v_y;
     theData.v_z = ptr->v_z;
-    heading = atan(theData.v_y/theData.v_x) * (180/PI);
+    heading = atan(theData.v_y/theData.v_x) * (180/PI) + 90;
     theData.altitude = ptr->altitude;
 //    theData.dimX = ptr->dimX;
 //    theData.dimY = ptr->dimY;
 //    theData.dimZ = ptr->dimZ;
     theData.cur_x = ptr->cur_x;
     theData.cur_y = ptr->cur_y;
+    this->armLength = ptr->armLength;
     theData.t0 = ptr->t0;
     theData.t1 = ptr->t1;
     theData.t2 = ptr->t2;
@@ -105,9 +109,9 @@ void AvionicsTelemetry::readWriteMemory()
 //    theData.obstacle_size_y = ptr->obstacle_size_y;
 //    theData.obstacle_cor_x = ptr->obstacle_cor_x;
 //    theData.obstacle_cor_y = ptr->obstacle_cor_y;
-
-//    ptr->destination_x = formatted_x;//THIS IS WHERE I AM CURRENTLY TRYING TO WRITE BUT IT IS NOT WORKING
-//    ptr->destination_y = formatted_y;//THIS IS WHERE I AM CURRENTLY TRYING TO WRITE BUT IT IS NOT WORKING
+    //write to shared mem
+    ptr->target_x = this->formatted_x;
+    ptr->target_y = this->formatted_y;
     sharedMem.unlock();
 
     ui->label_velx->setText(QString::number(theData.v_x, 'f', 2));
@@ -135,7 +139,6 @@ void AvionicsTelemetry::readWriteMemory()
     ui->label_ENG4->setText(QString::number(theData.t3,10));
 
     sharedMem.detach();
-
 
     //Send emit signals to change all of the widgets
     emit updateAltimeter(theData.altitude);

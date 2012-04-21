@@ -93,18 +93,18 @@ void MulticopterMap::paintEvent(QPaintEvent *)
 
 void MulticopterMap::updatePosition(int x, int y)
 {
-    pos_copter_x = x + 25;
-    pos_copter_y = y + 25;
+    pos_copter_x = x;
+    pos_copter_y = y;
     point_copter.setX(pos_copter_x);
     point_copter.setY(pos_copter_y);
-    point_eng1.setX(pos_copter_x + 5);
-    point_eng1.setY(pos_copter_y + 5);
-    point_eng2.setX(pos_copter_x - 5);
-    point_eng2.setY(pos_copter_y + 5);
-    point_eng3.setX(pos_copter_x + 5);
-    point_eng3.setY(pos_copter_y - 5);
-    point_eng4.setX(pos_copter_x - 5);
-    point_eng4.setY(pos_copter_y - 5);
+    point_eng1.setX(pos_copter_x + 10);
+    point_eng1.setY(pos_copter_y + 10);
+    point_eng2.setX(pos_copter_x - 10);
+    point_eng2.setY(pos_copter_y + 10);
+    point_eng3.setX(pos_copter_x + 10);
+    point_eng3.setY(pos_copter_y - 10);
+    point_eng4.setX(pos_copter_x - 10);
+    point_eng4.setY(pos_copter_y - 10);
 }
 
 void MulticopterMap::updateObstacles(int obSizeX, int obSizeY, int obCorX, int obCorY)
