@@ -4,6 +4,7 @@
 #include <QWidget>
 
 
+
 class Altimeter : public QWidget
 {
     Q_OBJECT

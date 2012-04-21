@@ -4,8 +4,10 @@
 #include <QMainWindow>
 #include <QSharedMemory>
 
+#define PI 3.1415926535897932384626433832795028841971693993751058209
+
 struct dataStruct{
-    int velX;
+/*    int velX;
     int velY;
     int velZ;
     int aclX;
@@ -31,7 +33,13 @@ struct dataStruct{
     //this is data for sending back to the simulator
     int destination_x;
     int destination_y;
+*/
+    int t0, t1, t2, t3;
+    int cur_x, cur_y, target_x, target_y;
+    double pitch, roll, altitude, v_x, v_y, v_z;
 };
+
+
 
 namespace Ui {
 class AvionicsTelemetry;

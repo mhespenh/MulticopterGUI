@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'avionicstelemetry.ui'
 **
-** Created: Fri Apr 20 16:15:10 2012
+** Created: Sat Apr 21 11:42:50 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -33,7 +33,6 @@ public:
     QLabel *label_3;
     QLabel *label_4;
     QLabel *label_5;
-    QLabel *label_6;
     QLabel *label_7;
     QLabel *label_8;
     QLabel *label_9;
@@ -41,7 +40,6 @@ public:
     QLabel *label_11;
     QLabel *label_12;
     QLabel *label_13;
-    QLabel *label_14;
     QLabel *label_15;
     QLabel *label_16;
     QLabel *label_17;
@@ -49,7 +47,6 @@ public:
     QLabel *label_19;
     QLabel *label_20;
     QLabel *label_21;
-    QLabel *label_22;
     QLabel *label_23;
     QLabel *label_24;
     QLabel *label_velx;
@@ -57,7 +54,6 @@ public:
     QLabel *label_velz;
     QLabel *label_aclx;
     QLabel *label_acly;
-    QLabel *label_aclz;
     QLabel *label_heading;
     QLabel *label_altitude;
     QLabel *label_25;
@@ -119,9 +115,6 @@ public:
         label_5 = new QLabel(centralWidget);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(30, 150, 67, 17));
-        label_6 = new QLabel(centralWidget);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setGeometry(QRect(30, 180, 67, 17));
         label_7 = new QLabel(centralWidget);
         label_7->setObjectName(QString::fromUtf8("label_7"));
         label_7->setGeometry(QRect(30, 210, 67, 17));
@@ -143,9 +136,6 @@ public:
         label_13 = new QLabel(centralWidget);
         label_13->setObjectName(QString::fromUtf8("label_13"));
         label_13->setGeometry(QRect(110, 150, 21, 17));
-        label_14 = new QLabel(centralWidget);
-        label_14->setObjectName(QString::fromUtf8("label_14"));
-        label_14->setGeometry(QRect(110, 180, 21, 17));
         label_15 = new QLabel(centralWidget);
         label_15->setObjectName(QString::fromUtf8("label_15"));
         label_15->setGeometry(QRect(110, 210, 21, 17));
@@ -167,9 +157,6 @@ public:
         label_21 = new QLabel(centralWidget);
         label_21->setObjectName(QString::fromUtf8("label_21"));
         label_21->setGeometry(QRect(160, 150, 51, 17));
-        label_22 = new QLabel(centralWidget);
-        label_22->setObjectName(QString::fromUtf8("label_22"));
-        label_22->setGeometry(QRect(160, 180, 51, 17));
         label_23 = new QLabel(centralWidget);
         label_23->setObjectName(QString::fromUtf8("label_23"));
         label_23->setGeometry(QRect(160, 210, 61, 17));
@@ -191,9 +178,6 @@ public:
         label_acly = new QLabel(centralWidget);
         label_acly->setObjectName(QString::fromUtf8("label_acly"));
         label_acly->setGeometry(QRect(120, 150, 67, 17));
-        label_aclz = new QLabel(centralWidget);
-        label_aclz->setObjectName(QString::fromUtf8("label_aclz"));
-        label_aclz->setGeometry(QRect(120, 180, 67, 17));
         label_heading = new QLabel(centralWidget);
         label_heading->setObjectName(QString::fromUtf8("label_heading"));
         label_heading->setGeometry(QRect(120, 210, 67, 17));
@@ -305,7 +289,7 @@ public:
         AvionicsTelemetry->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(AvionicsTelemetry);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 522, 25));
+        menuBar->setGeometry(QRect(0, 0, 522, 23));
         AvionicsTelemetry->setMenuBar(menuBar);
         mainToolBar = new QToolBar(AvionicsTelemetry);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -325,9 +309,8 @@ public:
         label->setText(QApplication::translate("AvionicsTelemetry", "Velocity - X ", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("AvionicsTelemetry", "Velocity - Y ", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("AvionicsTelemetry", "Velocity - Z ", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("AvionicsTelemetry", "Accel - X       ", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("AvionicsTelemetry", "Accel - Y", 0, QApplication::UnicodeUTF8));
-        label_6->setText(QApplication::translate("AvionicsTelemetry", "Accel - Z", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("AvionicsTelemetry", "Pitch       ", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("AvionicsTelemetry", "Roll", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("AvionicsTelemetry", "Heading", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("AvionicsTelemetry", "Altitude", 0, QApplication::UnicodeUTF8));
         label_9->setText(QApplication::translate("AvionicsTelemetry", ":", 0, QApplication::UnicodeUTF8));
@@ -335,7 +318,6 @@ public:
         label_11->setText(QApplication::translate("AvionicsTelemetry", ":", 0, QApplication::UnicodeUTF8));
         label_12->setText(QApplication::translate("AvionicsTelemetry", ":", 0, QApplication::UnicodeUTF8));
         label_13->setText(QApplication::translate("AvionicsTelemetry", ":", 0, QApplication::UnicodeUTF8));
-        label_14->setText(QApplication::translate("AvionicsTelemetry", ":", 0, QApplication::UnicodeUTF8));
         label_15->setText(QApplication::translate("AvionicsTelemetry", ":", 0, QApplication::UnicodeUTF8));
         label_16->setText(QApplication::translate("AvionicsTelemetry", ":", 0, QApplication::UnicodeUTF8));
         label_17->setText(QApplication::translate("AvionicsTelemetry", "m/s", 0, QApplication::UnicodeUTF8));
@@ -343,7 +325,6 @@ public:
         label_19->setText(QApplication::translate("AvionicsTelemetry", "m/s", 0, QApplication::UnicodeUTF8));
         label_20->setText(QApplication::translate("AvionicsTelemetry", "m/(s*s)", 0, QApplication::UnicodeUTF8));
         label_21->setText(QApplication::translate("AvionicsTelemetry", "m/(s*s)", 0, QApplication::UnicodeUTF8));
-        label_22->setText(QApplication::translate("AvionicsTelemetry", "m/(s*s)", 0, QApplication::UnicodeUTF8));
         label_23->setText(QApplication::translate("AvionicsTelemetry", "degrees", 0, QApplication::UnicodeUTF8));
         label_24->setText(QApplication::translate("AvionicsTelemetry", "meters", 0, QApplication::UnicodeUTF8));
         label_velx->setText(QApplication::translate("AvionicsTelemetry", "VAL", 0, QApplication::UnicodeUTF8));
@@ -351,7 +332,6 @@ public:
         label_velz->setText(QApplication::translate("AvionicsTelemetry", "VAL", 0, QApplication::UnicodeUTF8));
         label_aclx->setText(QApplication::translate("AvionicsTelemetry", "VAL", 0, QApplication::UnicodeUTF8));
         label_acly->setText(QApplication::translate("AvionicsTelemetry", "VAL", 0, QApplication::UnicodeUTF8));
-        label_aclz->setText(QApplication::translate("AvionicsTelemetry", "VAL", 0, QApplication::UnicodeUTF8));
         label_heading->setText(QApplication::translate("AvionicsTelemetry", "VAL", 0, QApplication::UnicodeUTF8));
         label_altitude->setText(QApplication::translate("AvionicsTelemetry", "VAL", 0, QApplication::UnicodeUTF8));
         label_25->setText(QApplication::translate("AvionicsTelemetry", "Room Dimensions:", 0, QApplication::UnicodeUTF8));

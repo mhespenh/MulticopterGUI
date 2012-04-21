@@ -19,7 +19,7 @@
 AvionicsTelemetry::AvionicsTelemetry(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::AvionicsTelemetry),
-    sharedMem("PRIVATE_TEST")
+    sharedMem("PUBLIC_SHARED_MEM")
 {
     ui->setupUi(this);
     QTimer *timer = new QTimer(this);
@@ -41,8 +41,7 @@ AvionicsTelemetry::~AvionicsTelemetry()
 
 void AvionicsTelemetry::readWriteMemory()
 {
-
-
+    float heading;
     //Check to see if the value has changed, if not do nothing, if it has run the else statement
     if(destination_x == destination_old_x && destination_y == destination_old_y)
     {
@@ -74,79 +73,76 @@ void AvionicsTelemetry::readWriteMemory()
         }
     }
 
-
-    if(!sharedMem.attach()){
-        //qDebug() << "attach error";
-        ui->label_MemWarn->show(); //This is the red text that will appear on "Avionics Telemetry" if the memory connection is lost
-        return;
+    if(!sharedMem.isAttached()) {
+        if(!sharedMem.attach()){
+        //    qDebug() << sharedMem.errorString();
+        //    qDebug() << sharedMem.key();
+            ui->label_MemWarn->show(); //This is the red text that will appear on "Avionics Telemetry" if the memory connection is lost
+            return;
+        }
     }
     ui->label_MemWarn->hide();
+
     dataStruct theData;
     dataStruct* ptr;
     sharedMem.lock();
     ptr = (dataStruct*)sharedMem.data();
-    theData.velX = ptr->velX;
-    theData.velY = ptr->velY;
-    theData.velZ = ptr->velZ;
-    theData.aclX = ptr->aclX;
-    theData.aclY = ptr->aclY;
-    theData.aclZ = ptr->aclZ;
-    theData.heading = ptr->heading;
+    theData.v_x = ptr->v_x;
+    theData.v_y = ptr->v_y;
+    theData.v_z = ptr->v_z;
+    heading = atan(theData.v_y/theData.v_x) * (180/PI);
     theData.altitude = ptr->altitude;
-    theData.dimX = ptr->dimX;
-    theData.dimY = ptr->dimY;
-    theData.dimZ = ptr->dimZ;
-    theData.corX = ptr->corX;
-    theData.corY = ptr->corY;
-    theData.corZ = ptr->corZ;
-    theData.eng1 = ptr->eng1;
-    theData.eng2 = ptr->eng2;
-    theData.eng3 = ptr->eng3;
-    theData.eng4 = ptr->eng4;
-    theData.obstacle_size_x = ptr->obstacle_size_x;
-    theData.obstacle_size_y = ptr->obstacle_size_y;
-    theData.obstacle_cor_x = ptr->obstacle_cor_x;
-    theData.obstacle_cor_y = ptr->obstacle_cor_y;
+//    theData.dimX = ptr->dimX;
+//    theData.dimY = ptr->dimY;
+//    theData.dimZ = ptr->dimZ;
+    theData.cur_x = ptr->cur_x;
+    theData.cur_y = ptr->cur_y;
+    theData.t0 = ptr->t0;
+    theData.t1 = ptr->t1;
+    theData.t2 = ptr->t2;
+    theData.t3 = ptr->t3;
+//    theData.obstacle_size_x = ptr->obstacle_size_x;
+//    theData.obstacle_size_y = ptr->obstacle_size_y;
+//    theData.obstacle_cor_x = ptr->obstacle_cor_x;
+//    theData.obstacle_cor_y = ptr->obstacle_cor_y;
 
-    ptr->destination_x = formatted_x;//THIS IS WHERE I AM CURRENTLY TRYING TO WRITE BUT IT IS NOT WORKING
-    ptr->destination_y = formatted_y;//THIS IS WHERE I AM CURRENTLY TRYING TO WRITE BUT IT IS NOT WORKING
+//    ptr->destination_x = formatted_x;//THIS IS WHERE I AM CURRENTLY TRYING TO WRITE BUT IT IS NOT WORKING
+//    ptr->destination_y = formatted_y;//THIS IS WHERE I AM CURRENTLY TRYING TO WRITE BUT IT IS NOT WORKING
     sharedMem.unlock();
 
-    ui->label_velx->setText(QString::number(theData.velX,10));
-    ui->label_vely->setText(QString::number(theData.velY,10));
-    ui->label_velz->setText(QString::number(theData.velZ,10));
-    ui->label_aclx->setText(QString::number(theData.aclX,10));
-    ui->label_acly->setText(QString::number(theData.aclY,10));
-    ui->label_aclz->setText(QString::number(theData.aclZ,10));
-    ui->label_heading->setText(QString::number(theData.heading,10));
-    ui->label_altitude->setText(QString::number(theData.altitude,10));
+    ui->label_velx->setText(QString::number(theData.v_x, 'f', 2));
+    ui->label_vely->setText(QString::number(theData.v_y, 'f', 2));
+    ui->label_velz->setText(QString::number(theData.v_z, 'f', 2));
+    ui->label_aclx->setText(QString::number(theData.v_x, 'f' ,2));
+    ui->label_acly->setText(QString::number(theData.v_y, 'f' ,2));
+    ui->label_heading->setText(QString::number(heading,'f', 1));
+    ui->label_altitude->setText(QString::number(theData.altitude, 'f', 2));
     //The following have been removed because the code does not account for changes in room sizes
     //ui->label_DimX->setText(QString::number(theData.dimX,10));
     //ui->label_DimY->setText(QString::number(theData.dimY,10));
     //ui->label_DimZ->setText(QString::number(theData.dimZ,10));
     //These are the placeholders:
-    ui->label_DimX->setText("6");
-    ui->label_DimY->setText("6");
-    ui->label_DimZ->setText("6");
+    ui->label_DimX->setText("600");
+    ui->label_DimY->setText("600");
+    ui->label_DimZ->setText("600");
     //End placeholders
-    ui->label_CorX->setText(QString::number(theData.corX,10));
-    ui->label_CorY->setText(QString::number(theData.corY,10));
-    //This has been removed because the altitude is also the Z coordinate, DOH! (Z for the map, the simulator handles it differently)
-    //ui->label_CorZ->setText(QString::number(theData.corZ,10));
-    ui->label_ENG1->setText(QString::number(theData.eng1,10));
-    ui->label_ENG2->setText(QString::number(theData.eng2,10));
-    ui->label_ENG3->setText(QString::number(theData.eng3,10));
-    ui->label_ENG4->setText(QString::number(theData.eng4,10));
+    ui->label_CorX->setText(QString::number(theData.cur_x,10));
+    ui->label_CorY->setText(QString::number(theData.cur_y,10));
+
+    ui->label_ENG1->setText(QString::number(theData.t0,10));
+    ui->label_ENG2->setText(QString::number(theData.t1,10));
+    ui->label_ENG3->setText(QString::number(theData.t2,10));
+    ui->label_ENG4->setText(QString::number(theData.t3,10));
 
     sharedMem.detach();
 
 
     //Send emit signals to change all of the widgets
     emit updateAltimeter(theData.altitude);
-    emit updateThrustBar(theData.eng1,theData.eng2,theData.eng3,theData.eng4);
-    emit updateHeadingIndicator(theData.heading);
-    emit updatePosition(theData.corX, theData.corY);
-    emit updateObstacles(theData.obstacle_size_x, theData.obstacle_size_y, theData.obstacle_cor_x, theData.obstacle_cor_y);
+    emit updateThrustBar(theData.t0,theData.t1,theData.t2,theData.t3);
+    emit updateHeadingIndicator(heading);
+    emit updatePosition(theData.cur_x, theData.cur_y);
+//    emit updateObstacles(theData.obstacle_size_x, theData.obstacle_size_y, theData.obstacle_cor_x, theData.obstacle_cor_y);
 }
 
 void AvionicsTelemetry::updateDestination(int x, int y)
