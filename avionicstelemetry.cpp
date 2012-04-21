@@ -85,7 +85,6 @@ void AvionicsTelemetry::readWriteMemory()
         }
     }
     ui->label_MemWarn->hide();
-
     dataStruct theData;
     dataStruct* ptr;
     sharedMem.lock();

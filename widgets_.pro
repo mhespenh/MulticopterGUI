@@ -11,3 +11,4 @@ SOURCES += thrustbar.cpp \
     altimeter.cpp
 FORMS += thrustbar.ui \
     avionicstelemetry.ui
+OTHER_FILES += README
