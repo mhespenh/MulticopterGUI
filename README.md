@@ -4,10 +4,14 @@ MulticopterGUI
 MulticoperGUI - Example application for testing the Multicopter Simulation Library.
 
 Usage:
+
   Make sure you have already compiled SimMotor and MulticopterSimulator (follow the
     instructions in the MulticopterSimulator repo)
+    
   Run MulticopterSimulator from the commandline to start the simulation
+  
   Run MulticopterGUI to view the simulation in progress.
+  
   You can click anywhere on the map to change the destination of the craft at any
     time.  It shouldn't let you run it into walls.
   
