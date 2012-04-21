@@ -1,8 +1,7 @@
 MulticopterGUI
 ==============
 
-MulticopterGUI
-MulticoperGUI - Example application for testing the Multicopter Simulation Library.
+MulticopterGUI - Example application for testing the Multicopter Simulation Library.
 
 Usage:
     Make sure you have already compiled SimMotor and MulticopterSimulator
