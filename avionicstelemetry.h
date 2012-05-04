@@ -34,10 +34,11 @@ struct dataStruct{
     int destination_x;
     int destination_y;
 */
-    int t0, t1, t2, t3, t4, t5, t6, t7;
+    double t0, t1, t2, t3, t4, t5, t6, t7;
     int numMotors;
     int cur_x, cur_y, target_x, target_y;
-    double pitch, roll, altitude, v_x, v_y, v_z, armLength;
+    double pitch, roll, cur_alt, target_alt, v_x, v_y, v_z, heading;
+    };
 };
 
 
@@ -74,6 +75,7 @@ private:
     int destination_old_y;
     int formatted_x;
     int formatted_y;
+    int target_altitude;
     double armLength;
 };
 

@@ -92,11 +92,8 @@ void AvionicsTelemetry::readWriteMemory()
     theData.v_x = ptr->v_x;
     theData.v_y = ptr->v_y;
     theData.v_z = ptr->v_z;
-    heading = atan(theData.v_y/theData.v_x) * (180/PI) + 90;
-    theData.altitude = ptr->altitude;
-//    theData.dimX = ptr->dimX;
-//    theData.dimY = ptr->dimY;
-//    theData.dimZ = ptr->dimZ;
+    heading = ptr->heading;
+    theData.cur_alt = ptr->cur_alt;
     theData.cur_x = ptr->cur_x;
     theData.cur_y = ptr->cur_y;
     this->armLength = ptr->armLength;
@@ -104,13 +101,14 @@ void AvionicsTelemetry::readWriteMemory()
     theData.t1 = ptr->t1;
     theData.t2 = ptr->t2;
     theData.t3 = ptr->t3;
-//    theData.obstacle_size_x = ptr->obstacle_size_x;
-//    theData.obstacle_size_y = ptr->obstacle_size_y;
-//    theData.obstacle_cor_x = ptr->obstacle_cor_x;
-//    theData.obstacle_cor_y = ptr->obstacle_cor_y;
+    theData.t4 = ptr->t4;
+    theData.t5 = ptr->t5;
+    theData.t6 = ptr->t6;
+    theData.t7 = ptr->t7;
     //write to shared mem
     ptr->target_x = this->formatted_x;
     ptr->target_y = this->formatted_y;
+    ptr->target_alt = this->target_altitude;
     sharedMem.unlock();
 
     ui->label_velx->setText(QString::number(theData.v_x, 'f', 2));
@@ -136,6 +134,11 @@ void AvionicsTelemetry::readWriteMemory()
     ui->label_ENG2->setText(QString::number(theData.t1,10));
     ui->label_ENG3->setText(QString::number(theData.t2,10));
     ui->label_ENG4->setText(QString::number(theData.t3,10));
+    ui->label_ENG5->setText(QString::number(theData.t4,10));
+    ui->label_ENG6->setText(QString::number(theData.t5,10));
+    ui->label_ENG7->setText(QString::number(theData.t6,10));
+    ui->label_ENG8->setText(QString::number(theData.t7,10));
+
 
     sharedMem.detach();
 
