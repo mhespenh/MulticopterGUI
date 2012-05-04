@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>522</width>
-    <height>386</height>
+    <height>370</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -656,115 +656,11 @@
      <string>&lt;font color = &quot;red&quot;&gt;Warning: No Data In Shared Memory, Aborting Read&lt;/color&gt;</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_41">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>270</y>
-      <width>41</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>ENG1</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_43">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>270</y>
-      <width>41</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>ENG2</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_44">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>270</y>
-      <width>41</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>ENG3</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_45">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>270</y>
-      <width>41</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>ENG4</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_ENG1">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>270</y>
-      <width>31</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>VAL</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_ENG2">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>270</y>
-      <width>31</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>VAL</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_ENG3">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>270</y>
-      <width>31</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>VAL</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_ENG4">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>270</y>
-      <width>67</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>VAL</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_32">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>300</y>
+      <y>280</y>
       <width>101</width>
       <height>17</height>
      </rect>
@@ -777,7 +673,7 @@
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>300</y>
+      <y>280</y>
       <width>111</width>
       <height>17</height>
      </rect>
@@ -790,7 +686,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>300</y>
+      <y>280</y>
       <width>67</width>
       <height>17</height>
      </rect>
@@ -803,7 +699,7 @@
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>300</y>
+      <y>280</y>
       <width>67</width>
       <height>17</height>
      </rect>
@@ -819,7 +715,7 @@
      <x>0</x>
      <y>0</y>
      <width>522</width>
-     <height>23</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

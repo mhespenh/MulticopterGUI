@@ -117,7 +117,7 @@ void AvionicsTelemetry::readWriteMemory()
     ui->label_aclx->setText(QString::number(theData.v_x, 'f' ,2));
     ui->label_acly->setText(QString::number(theData.v_y, 'f' ,2));
     ui->label_heading->setText(QString::number(heading,'f', 1));
-    ui->label_altitude->setText(QString::number(theData.altitude, 'f', 2));
+    ui->label_altitude->setText(QString::number(theData.cur_alt, 'f', 2));
     //The following have been removed because the code does not account for changes in room sizes
     //ui->label_DimX->setText(QString::number(theData.dimX,10));
     //ui->label_DimY->setText(QString::number(theData.dimY,10));
@@ -129,7 +129,7 @@ void AvionicsTelemetry::readWriteMemory()
     //End placeholders
     ui->label_CorX->setText(QString::number(theData.cur_x,10));
     ui->label_CorY->setText(QString::number(theData.cur_y,10));
-
+/*
     ui->label_ENG1->setText(QString::number(theData.t0,10));
     ui->label_ENG2->setText(QString::number(theData.t1,10));
     ui->label_ENG3->setText(QString::number(theData.t2,10));
@@ -138,12 +138,12 @@ void AvionicsTelemetry::readWriteMemory()
     ui->label_ENG6->setText(QString::number(theData.t5,10));
     ui->label_ENG7->setText(QString::number(theData.t6,10));
     ui->label_ENG8->setText(QString::number(theData.t7,10));
-
+*/
 
     sharedMem.detach();
 
     //Send emit signals to change all of the widgets
-    emit updateAltimeter(theData.altitude);
+    emit updateAltimeter(theData.cur_alt);
     emit updateThrustBar(theData.t0,theData.t1,theData.t2,theData.t3, theData.t4, theData.t5, theData.t6, theData.t7, theData.numMotors);
     emit updateHeadingIndicator(heading);
     emit updatePosition(theData.cur_x, theData.cur_y);

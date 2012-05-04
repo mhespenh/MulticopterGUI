@@ -35,10 +35,11 @@ struct dataStruct{
     int destination_y;
 */
     double t0, t1, t2, t3, t4, t5, t6, t7;
+    double armLength;
     int numMotors;
     int cur_x, cur_y, target_x, target_y;
     double pitch, roll, cur_alt, target_alt, v_x, v_y, v_z, heading;
-    };
+    //};
 };
 
 
