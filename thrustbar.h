@@ -18,7 +18,7 @@ public:
     ~ThrustBar();
 public slots:
     void updateBarGraph();
-    void updateThrust(int e1, int e2, int e3, int e4);
+    void updateThrust(int e1, int e2, int e3, int e4, int e5, int e6, int e7, int e8, int numMotors);
 private:
     Ui::MainWindow *ui;
     int eng1;

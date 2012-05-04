@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'avionicstelemetry.ui'
 **
-** Created: Sat Apr 21 11:42:50 2012
-**      by: Qt User Interface Compiler version 4.6.2
+** Created: Fri May 4 17:18:05 2012
+**      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/

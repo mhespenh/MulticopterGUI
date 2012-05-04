@@ -29,6 +29,7 @@ MulticopterMap::MulticopterMap(QWidget *parent)
     resize(650, 650);
 
 
+
     //m_width = 2;
     //m_color = Qt::red;
     //m_style = Qt::SolidLine;
@@ -83,8 +84,17 @@ void MulticopterMap::paintEvent(QPaintEvent *)
           painter.setPen(pen);
 
           //This will draw the obstacle
-          painter.drawEllipse(obstacle, obstacle_size_x, obstacle_size_y);
-
+          //painter.drawEllipse(obstacle, obstacle_size_x, obstacle_size_y);
+          for(int i =0 ; i < 600; i++)
+          {
+              for(int j = 0; j < 600; j++)
+              {
+                  if(obstacleArray[i][j] != 0)
+                  {
+                        painter.drawPoint(i+25,j+25);
+                  }
+              }
+          }
 
        }
 
@@ -107,13 +117,14 @@ void MulticopterMap::updatePosition(int x, int y)
     point_eng4.setY(pos_copter_y - 10);
 }
 
-void MulticopterMap::updateObstacles(int obSizeX, int obSizeY, int obCorX, int obCorY)
+void MulticopterMap::updateObstacles(int array[600][600])
 {
-    obstacle_size_x = obSizeX;
-    obstacle_size_y = obSizeY;
-    obstacle_cor_x = obCorX; //Cors are not necessary for private var, only the size is
-    obstacle_cor_y = obCorY; //Cors are not necessary for private var, only the size is
+    for(int i = 0; i < 600 ; i++)
+    {
+        for(int j = 0; j < 600 ; j++)
+        {
+            obstacleArray[i][j] = array[i][j];
+        }
+    }
 
-    obstacle.setX(obCorX);
-    obstacle.setY(obCorY);
 }

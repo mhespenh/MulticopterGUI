@@ -34,7 +34,8 @@ struct dataStruct{
     int destination_x;
     int destination_y;
 */
-    int t0, t1, t2, t3;
+    int t0, t1, t2, t3, t4, t5, t6, t7;
+    int numMotors;
     int cur_x, cur_y, target_x, target_y;
     double pitch, roll, altitude, v_x, v_y, v_z, armLength;
 };
@@ -58,11 +59,11 @@ public slots:
 
 signals:
     void updateAltimeter(int value);
-    void updateThrustBar(int e1, int e2, int e3, int e4);
+    void updateThrustBar(int e1, int e2, int e3, int e4, int e5, int e6, int e7, int e8, int numMotors);
     void updateHeadingIndicator(int value);
     void closeAllWidgets();
     void updatePosition(int x, int y);
-    void updateObstacles(int sizeX, int sizeY, int corX, int corY);
+    void updateObstacles(int array[600][600]);
     
 private:
     Ui::AvionicsTelemetry *ui;

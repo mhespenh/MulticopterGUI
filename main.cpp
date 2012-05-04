@@ -27,10 +27,10 @@ int main(int argc, char *argv[])
 
     //Signals from Telemetry -> Widgets
     QObject::connect(&telemetry,SIGNAL(updateAltimeter(int)),&altimeter,SLOT(updateAltitude(int)));
-    QObject::connect(&telemetry,SIGNAL(updateThrustBar(int,int,int,int)),&thrust,SLOT(updateThrust(int,int,int,int)));
+    QObject::connect(&telemetry,SIGNAL(updateThrustBar(int,int,int,int,int,int,int,int,int)),&thrust,SLOT(updateThrust(int,int,int,int,int,int,int,int,int)));
     QObject::connect(&telemetry,SIGNAL(updateHeadingIndicator(int)),&heading,SLOT(updateHeading(int)));
     QObject::connect(&telemetry,SIGNAL(updatePosition(int,int)),&map,SLOT(updatePosition(int,int)));
-    QObject::connect(&telemetry,SIGNAL(updateObstacles(int,int,int,int)),&map, SLOT(updateObstacles(int,int,int,int)));
+    QObject::connect(&telemetry,SIGNAL(updateObstacles(int[600][600])),&map, SLOT(updateObstacles(int[600][600])));
 
     QObject::connect(&map,SIGNAL(updateDestination(int,int)),&telemetry, SLOT(updateDestination(int,int)));
 

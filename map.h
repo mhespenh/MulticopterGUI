@@ -16,7 +16,7 @@ public:
 
 public slots:
     void updatePosition(int x, int y);
-    void updateObstacles(int obSizeX, int obSizeY, int obCorX, int obCorY);
+    void updateObstacles(int array[600][600]);
 
 signals:
     void updateDestination(int x, int y); //This will send the coordinates back to Avionics Telemetry, which will send it back to the Simulator
@@ -44,6 +44,7 @@ private:
     int obstacle_cor_x;
     int obstacle_cor_y;
     QPoint obstacle;
+    int obstacleArray[600][600];
 };
 
 #endif
