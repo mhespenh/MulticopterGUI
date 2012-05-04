@@ -121,11 +121,11 @@ void Altimeter::paintEvent(QPaintEvent *)
     painter.drawArc(-100,-100,200,200,0,360*16);
 
     painter.setPen(c_black);
-    painter.drawText(QPoint(20,20),QString::number(altitude,10));
+    painter.drawText(QPoint(20,20),QString::number(altitude,'f', 1));
 
 }
 
-void Altimeter::updateAltitude(int value)
+void Altimeter::updateAltitude(double value)
 {
     altitude = value;
 }

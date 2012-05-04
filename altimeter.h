@@ -12,13 +12,13 @@ class Altimeter : public QWidget
 public:
     Altimeter(QWidget *parent = 0);
 public slots:
-    void updateAltitude(int value);
+    void updateAltitude(double value);
 
 protected:
     void paintEvent(QPaintEvent *event);
 private:
     int counter;
-    int altitude;
+    float altitude;
 };
 
 
