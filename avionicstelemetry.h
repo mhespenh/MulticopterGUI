@@ -65,6 +65,9 @@ signals:
     void updatePosition(int x, int y);
     void updateObstacles(int array[600][600]);
     
+private slots:
+    void on_horizontalSlider_sliderMoved(int position);
+
 private:
     Ui::AvionicsTelemetry *ui;
     QSharedMemory sharedMem;

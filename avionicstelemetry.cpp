@@ -166,3 +166,9 @@ void AvionicsTelemetry::updateDestination(int x, int y)
     destination_y = y;
 }
 
+
+void AvionicsTelemetry::on_horizontalSlider_sliderMoved(int position)
+{
+    this->target_altitude = position;
+    ui->label_altitude_2 = position;
+}
