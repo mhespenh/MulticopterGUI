@@ -26,6 +26,10 @@ ThrustBar::ThrustBar(QWidget *parent) :
     eng2 =0;
     eng3 =0;
     eng4 =0;
+    eng5 =0;
+    eng6 =0;
+    eng7 =0;
+    eng8 =0;
 
     setWindowTitle(tr("Thrust Graphs"));
 }
@@ -38,16 +42,30 @@ ThrustBar::~ThrustBar()
 void ThrustBar::updateBarGraph()
 {
 
-    ui->progressBar->setValue(eng1);
-    ui->progressBar_2->setValue(eng2);
-    ui->progressBar_3->setValue(eng3);
-    ui->progressBar_4->setValue(eng4);
+    //ui->progressBar->setValue(eng1);
+    //ui->progressBar_2->setValue(eng2);
+    //ui->progressBar_3->setValue(eng3);
+    //ui->progressBar_4->setValue(eng4);
+    ui->progBarENG1->setValue(eng1);
+    ui->progBarENG2->setValue(eng2);
+    ui->progBarENG3->setValue(eng3);
+    ui->progBarENG4->setValue(eng4);
 
 
 }
 
-void ThrustBar::updateThrust(int e1, int e2, int e3, int e4, int e5, int e6, int e7, int e8, int numMotors)
+void ThrustBar::updateThrust(int e1, int e2, int e3, int e4, int e5, int e6, int e7, int e8, int m_numMotors)
 {
+    eng1 = e1;
+    eng2 = e2;
+    eng3 = e3;
+    eng4 = e4;
+    eng5 = e5;
+    eng6 = e6;
+    eng7 = e7;
+    eng8 = e8;
+    numMotors = m_numMotors;
+
     if(numMotors == 3)
     {
         ui->progBarENG1->show();
@@ -168,9 +186,6 @@ void ThrustBar::updateThrust(int e1, int e2, int e3, int e4, int e5, int e6, int
         ui->label_7->show();
         ui->label_8->show();
     }
-    eng1 = e1;
-    eng2 = e2;
-    eng3 = e3;
-    eng4 = e4;
+
 }
 
