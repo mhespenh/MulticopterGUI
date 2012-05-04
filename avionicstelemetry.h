@@ -58,7 +58,7 @@ public slots:
     void updateDestination(int x, int y);
 
 signals:
-    void updateAltimeter(int value);
+    void updateAltimeter(double value);
     void updateThrustBar(int e1, int e2, int e3, int e4, int e5, int e6, int e7, int e8, int numMotors);
     void updateHeadingIndicator(int value);
     void closeAllWidgets();

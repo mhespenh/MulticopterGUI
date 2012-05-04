@@ -91,7 +91,7 @@ void Altimeter::paintEvent(QPaintEvent *)
 
     painter.save();
     //painter.rotate( (time.msec() * 360 / 999 ));
-    painter.rotate(altitude*360/12);
+    painter.rotate((altitude*360/18)+90);
     painter.drawConvexPolygon(pointer, 7);
     painter.restore();
 

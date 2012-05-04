@@ -18,7 +18,7 @@ protected:
     void paintEvent(QPaintEvent *event);
 private:
     int counter;
-    float altitude;
+    double altitude;
 };
 
 
