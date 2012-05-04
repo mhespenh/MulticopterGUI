@@ -142,7 +142,7 @@ void AvionicsTelemetry::readWriteMemory()
 
     //Send emit signals to change all of the widgets
     emit updateAltimeter(theData.cur_alt);
-    emit updateThrustBar(theData.t0,theData.t1,theData.t2,theData.t3, theData.t4, theData.t5, theData.t6, theData.t7, theData.numMotors);
+    emit updateThrustBar(theData.t0,theData.t1,theData.t2,theData.t3, theData.t4, theData.t5, theData.t6, theData.t7, 4);
     emit updateHeadingIndicator(heading);
     emit updatePosition(theData.cur_x, theData.cur_y);
     //Sample random array generation
