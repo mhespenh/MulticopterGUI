@@ -35,7 +35,7 @@ AvionicsTelemetry::AvionicsTelemetry(QWidget *parent) :
     this->formatted_y = 0;
     this->armLength = 1;
     this->target_altitude = 10;
-
+    ui->horizontalSlider->setValue(this->target_altitude);
 }
 
 AvionicsTelemetry::~AvionicsTelemetry()
@@ -170,5 +170,5 @@ void AvionicsTelemetry::updateDestination(int x, int y)
 void AvionicsTelemetry::on_horizontalSlider_sliderMoved(int position)
 {
     this->target_altitude = position;
-    ui->label_altitude_2 = position;
+    ui->label_altitude_2->setText(QString::number(position));
 }
