@@ -149,6 +149,7 @@ void AvionicsTelemetry::readWriteMemory()
     emit updatePosition(theData.cur_x, theData.cur_y);
     //Sample random array generation
     int array[600][600];
+    /*
     for(int i = 0; i < 600 ; i++)
     {
         for(int j = 0; j < 600 ; j++)
@@ -156,7 +157,7 @@ void AvionicsTelemetry::readWriteMemory()
             array[i][j] = rand() % 2 ;
         }
     }
-
+    */
     emit updateObstacles(array);
 }
 
