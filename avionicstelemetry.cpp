@@ -34,6 +34,7 @@ AvionicsTelemetry::AvionicsTelemetry(QWidget *parent) :
     this->formatted_x = 0;
     this->formatted_y = 0;
     this->armLength = 1;
+    this->target_altitude = 10;
 
 }
 
@@ -94,6 +95,13 @@ void AvionicsTelemetry::readWriteMemory()
     theData.v_z = ptr->v_z;
     heading = ptr->heading;
     theData.cur_alt = ptr->cur_alt;
+    theData.pitch = ptr->pitch;
+    theData.roll  = ptr->roll;
+    heading = ptr->heading;
+    theData.cur_alt = ptr->cur_alt;
+//    theData.dimX = ptr->dimX;
+//    theData.dimY = ptr->dimY;
+//    theData.dimZ = ptr->dimZ;
     theData.cur_x = ptr->cur_x;
     theData.cur_y = ptr->cur_y;
     this->armLength = ptr->armLength;
@@ -114,8 +122,8 @@ void AvionicsTelemetry::readWriteMemory()
     ui->label_velx->setText(QString::number(theData.v_x, 'f', 2));
     ui->label_vely->setText(QString::number(theData.v_y, 'f', 2));
     ui->label_velz->setText(QString::number(theData.v_z, 'f', 2));
-    ui->label_aclx->setText(QString::number(theData.v_x, 'f' ,2));
-    ui->label_acly->setText(QString::number(theData.v_y, 'f' ,2));
+    ui->label_aclx->setText(QString::number(theData.roll, 'f' ,2));
+    ui->label_acly->setText(QString::number(theData.pitch, 'f' ,2));
     ui->label_heading->setText(QString::number(heading,'f', 1));
     ui->label_altitude->setText(QString::number(theData.cur_alt, 'f', 2));
     //The following have been removed because the code does not account for changes in room sizes
@@ -129,16 +137,6 @@ void AvionicsTelemetry::readWriteMemory()
     //End placeholders
     ui->label_CorX->setText(QString::number(theData.cur_x,10));
     ui->label_CorY->setText(QString::number(theData.cur_y,10));
-/*
-    ui->label_ENG1->setText(QString::number(theData.t0,10));
-    ui->label_ENG2->setText(QString::number(theData.t1,10));
-    ui->label_ENG3->setText(QString::number(theData.t2,10));
-    ui->label_ENG4->setText(QString::number(theData.t3,10));
-    ui->label_ENG5->setText(QString::number(theData.t4,10));
-    ui->label_ENG6->setText(QString::number(theData.t5,10));
-    ui->label_ENG7->setText(QString::number(theData.t6,10));
-    ui->label_ENG8->setText(QString::number(theData.t7,10));
-*/
 
     sharedMem.detach();
 
@@ -149,7 +147,6 @@ void AvionicsTelemetry::readWriteMemory()
     emit updatePosition(theData.cur_x, theData.cur_y);
     //Sample random array generation
     int array[600][600];
-    /*
     for(int i = 0; i < 600 ; i++)
     {
         for(int j = 0; j < 600 ; j++)
@@ -157,7 +154,7 @@ void AvionicsTelemetry::readWriteMemory()
             array[i][j] = rand() % 2 ;
         }
     }
-    */
+
     emit updateObstacles(array);
 }
 
