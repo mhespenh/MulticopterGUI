@@ -50,7 +50,10 @@ void ThrustBar::updateBarGraph()
     ui->progBarENG2->setValue(eng2);
     ui->progBarENG3->setValue(eng3);
     ui->progBarENG4->setValue(eng4);
-
+    ui->progBarENG5->setValue(eng5);
+    ui->progBarENG6->setValue(eng6);
+    ui->progBarENG7->setValue(eng7);
+    ui->progBarENG8->setValue(eng8);
 
 }
 

@@ -31,11 +31,12 @@ AvionicsTelemetry::AvionicsTelemetry(QWidget *parent) :
 
     //Hide Memory Warning
     ui->label_MemWarn->hide();
-    this->formatted_x = 0;
-    this->formatted_y = 0;
+    this->formatted_x = 100;
+    this->formatted_y = 100;
     this->armLength = 1;
     this->target_altitude = 10;
     ui->horizontalSlider->setValue(this->target_altitude);
+    obstacleLoaded = false;
 }
 
 AvionicsTelemetry::~AvionicsTelemetry()
@@ -146,16 +147,23 @@ void AvionicsTelemetry::readWriteMemory()
     emit updateHeadingIndicator(heading);
     emit updatePosition(theData.cur_x, theData.cur_y);
     //Sample random array generation
-    int array[600][600];
- /*   for(int i = 0; i < 600 ; i++)
-    {
-        for(int j = 0; j < 600 ; j++)
+    if( !obstacleLoaded ) {
+        int array[600][600];
+        for(int i = 0; i < 600 ; i++)
         {
-            array[i][j] = rand() % 2 ;
+            for(int j = 0; j < 600 ; j++)
+            {
+                array[i][j] = 0;
+            }
         }
+        for(int i=400; i<500; i++) {
+            for(int j=100; j<500; j++) {
+                array[i][j] = 1;
+            }
+        }
+        emit updateObstacles(array);
+        obstacleLoaded = true;
     }
-*/
-//    emit updateObstacles(array);
 }
 
 void AvionicsTelemetry::updateDestination(int x, int y)

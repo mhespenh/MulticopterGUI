@@ -79,6 +79,7 @@ private:
     int formatted_y;
     double armLength;
     int target_altitude;
+    bool obstacleLoaded;
 };
 
 #endif // AVIONICSTELEMETRY_H
